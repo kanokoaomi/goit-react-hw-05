@@ -1,0 +1,22 @@
+.navigation {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    justify-content: center;
+    /* background-color: #343434; */
+    background-color: gainsboro;
+}
+
+.link {
+    font-size: 20px;
+    color: #343434;
+    line-height: 1;
+    font-weight: 350;
+}
+
+.activeLink {
+    color: #D61B2B;
+    font-size: 22px;
+    font-weight: 500;
+    transition: all 0.1s linear;
+}

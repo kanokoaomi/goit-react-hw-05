@@ -1,0 +1,41 @@
+.wrapper {
+    padding: 32px;
+}
+
+.title {
+    color: #343434;
+    margin-bottom: 0;
+}
+
+.title::after {
+    content: '';
+    border: 1px solid #D61B2B;
+    width: 100%;
+    /* max-width: 335px; */
+    margin-bottom: 46px;
+    margin-top: 32px;
+    display: block;
+}
+
+.listOfMovies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.movieCard {
+    width: calc((100% - 128px) / 5);
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.movieCard:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.titleOfMovie {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
