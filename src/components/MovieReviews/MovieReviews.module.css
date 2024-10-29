@@ -1,0 +1,16 @@
+.list {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.commentWrapper {
+    background-color: rgb(238, 238, 238);
+    padding: 24px;
+    border-radius: 10px;
+}
+
+.author {
+    margin-bottom: 10px;
+}

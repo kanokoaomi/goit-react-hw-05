@@ -2,22 +2,32 @@
 // import MovieDetailsPage from "../MovieDetailsPage/MovieDetailsPage"
 
 import { useSearchParams } from "react-router-dom"
-import SearchBar from "../../components/SearchBar/SearchBar"
 import { useEffect, useState } from "react"
 import { findMoviesWithQuery } from "../../api/movies"
+import MovieList from "../../components/MovieList/MovieList"
+import SearchBar from "../../components/SearchBar/SearchBar"
 import Loader from "../../components/Loader/Loader"
 
+
+import styles from "./MoviesPage.module.css"
 
 const MoviesPage = () => {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const searchTerm = searchParams.get('q')
     const [isLoading, setIsLoading] = useState(false)
+    const [showEmptyMessage, setShowEmptyMessage] = useState(false)
 
     const [movies, setMovies] = useState(null)
 
     const handleSubmit = (inputValue) => {
-        // console.log(inputValue, searchParams)
+        if (inputValue.trim() === "") {
+            setSearchParams({})
+            setShowEmptyMessage(true)
+            setMovies(null)
+            return
+        }
+        setShowEmptyMessage(false)
         setSearchParams({ q: inputValue })
     }
 
@@ -25,6 +35,8 @@ const MoviesPage = () => {
         const fetchMovieWithQuery = async () => {
             try {
                 if (!searchTerm) return
+
+                setMovies(null)
 
                 setIsLoading(true)
 
@@ -41,19 +53,12 @@ const MoviesPage = () => {
     }, [searchTerm])
 
     return (
-        <div>
+        <div className={styles.wrapper}>
             <SearchBar handleSubmit={handleSubmit} />
-            <ul>
-                {movies && movies.map((movie) => {
-                    <li key={movie.id}>
-                        <img
-                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                            alt="Poster of the film"
-                        />
-                        <p>{movie.title}</p>
-                    </li>
-                })}
-            </ul>
+            <MovieList movies={movies} />
+            {showEmptyMessage && <p className={styles.noMatches}>Type a search word to find a movie</p>}
+            {!isLoading && movies && movies.length === 0 &&
+                (<p className={styles.noMatches}>No matches found!</p>)}
 
             {isLoading && <Loader />}
         </div>

@@ -1,0 +1,40 @@
+.wrapperOfSection {
+    display: flex;
+    gap: 32px;
+    padding: 32px;
+}
+
+.imgWrapper {
+    padding: 10px;
+    min-width: 500px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.movieText {
+    font-size: 18px;
+}
+
+.describtionText {
+    font-weight: 600;
+}
+
+.reviewsAndCast {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+}
+
+.link {
+    font-size: 22px;
+    color: #343434;
+    text-decoration: underline;
+}
+
+.activeLink {
+    color: #D61B2B;
+}

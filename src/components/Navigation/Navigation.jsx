@@ -6,7 +6,7 @@ const Navigation = () => {
     return (
         <nav className={styles.navigation}>
             <NavLink to="/" className={({ isActive }) => clsx(styles.link, isActive && styles.activeLink)}>Home</NavLink>
-            <NavLink to="/movies" className={({ isActive }) => clsx(styles.link, isActive && styles.activeLink)}>Movies</NavLink>
+            <NavLink to="/movies" className={({ isActive }) => clsx(styles.link, isActive && styles.activeLink)} end>Movies</NavLink>
         </nav>
     )
 }

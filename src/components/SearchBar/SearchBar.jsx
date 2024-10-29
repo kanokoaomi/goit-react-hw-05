@@ -1,4 +1,4 @@
-
+import styles from "./SearchBar.module.css"
 
 const SearchBar = ({ handleSubmit }) => {
 
@@ -13,11 +13,11 @@ const SearchBar = ({ handleSubmit }) => {
 
     return (
         <div>
-            <form onSubmit={onFormSubmit}>
+            <form className={styles.form} onSubmit={onFormSubmit}>
                 <label htmlFor="search">
-                    <input type="text" id="search" name="search" />
+                    <input className={styles.input} type="text" id="search" name="search" />
                 </label>
-                <button type="submit">Search</button>
+                <button className={styles.button} type="submit">Search</button>
             </form>
         </div>
     )

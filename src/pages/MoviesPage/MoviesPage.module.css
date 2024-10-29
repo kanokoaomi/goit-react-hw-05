@@ -1,0 +1,10 @@
+.wrapper {
+    padding: 32px;
+}
+
+.noMatches {
+    color: #D61B2B;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 32px;
+}

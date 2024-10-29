@@ -3,6 +3,7 @@ import { popularMoviesForHomePage } from "../../api/movies"
 
 import styles from "./HomePage.module.css"
 import Loader from "../../components/Loader/Loader"
+import MovieList from "../../components/MovieList/MovieList"
 
 
 const HomePage = () => {
@@ -32,20 +33,8 @@ const HomePage = () => {
     return (
         <div className={styles.wrapper}>
             <h1 className={styles.title}>The most popular movies in a week</h1>
-            <ul className={styles.listOfMovies}>
-                {movies && movies.map((movie) => {
-                    return (
-                        <li className={styles.movieCard} key={movie.id}>
-                            <img
-                                src={`https:image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                alt="Poster of the film"
-                            />
-                            <p className={styles.titleOfMovie}>{movie.title}</p>
-                        </li>
-                    )
-                })}
-            </ul>
-
+            <span className={styles.after}></span>
+            <MovieList movies={movies} />
             {isLoading && <Loader />}
 
         </div>

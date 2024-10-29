@@ -11,7 +11,6 @@ const moviesInstance = axios.create({
 
 export const popularMoviesForHomePage = async () => {
   const { data } = await moviesInstance.get("/trending/movie/week");
-  console.log(data);
   return data;
 };
 
@@ -25,3 +24,18 @@ export const findMoviesWithQuery = async (query) => {
 // export const geImage = async (movieId) => {
 //     const { poster_path } =
 // }
+
+export const oneMovieDetails = async (movieId) => {
+  const { data } = await moviesInstance.get(`/movie/${movieId}`);
+  return data;
+};
+
+export const creditsOfTheMovie = async (movieId) => {
+  const { data } = await moviesInstance.get(`/movie/${movieId}/credits`);
+  return data;
+};
+
+export const reviewsOfTheMovie = async (movieId) => {
+  const { data } = await moviesInstance.get(`/movie/${movieId}/reviews`);
+  return data;
+};

@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.input {
+    font-family:  "Instrument Sans", serif;
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #D61B2B;
+    font-size: 1em;
+}
+
+.button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+    background-color: #D61B2B;
+    color: white;
+}
