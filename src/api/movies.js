@@ -21,10 +21,6 @@ export const findMoviesWithQuery = async (query) => {
   return data;
 };
 
-// export const geImage = async (movieId) => {
-//     const { poster_path } =
-// }
-
 export const oneMovieDetails = async (movieId) => {
   const { data } = await moviesInstance.get(`/movie/${movieId}`);
   return data;

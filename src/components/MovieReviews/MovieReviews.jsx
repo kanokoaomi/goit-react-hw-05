@@ -19,25 +19,22 @@ const MovieReviews = () => {
         fetchMovieCredits()
     }, [movieId])
 
-    if (!movieReviews) {
-        return <p>Movie reviews is not available.</p>;
-    }
-
-    if (movieReviews.length === 0) {
-        return <p>No reviews for the movie yet.</p>;
-    }
-
     return (
-        <ul className={styles.list}>
-            {movieReviews.map((review) => {
-                return (
-                    <li className={styles.commentWrapper} key={review.id}>
-                        <p className={styles.author}><b>{review.author}</b></p>
-                        <p>{review.content}</p>
-                    </li>
-                )
-            })}
-        </ul>
+        <div>
+            {movieReviews && (
+                <ul className={styles.list}>
+                    {movieReviews.map((review) => {
+                        return (
+                            <li className={styles.commentWrapper} key={review.id}>
+                                <p className={styles.author}><b>{review.author}</b></p>
+                                <p>{review.content}</p>
+                            </li>
+                        )
+                    })}
+                </ul>
+            )}
+            {!movieReviews && <p>No reviews yet</p>}
+        </div>
     )
 }
 
